@@ -1,0 +1,23 @@
+//program to find number of 1s(binary) in number
+#include <iostream>
+
+using namespace std;
+int one(int n){
+    int count=0;
+    while(n!=0){
+        if(n&1){
+            count++;
+        }
+        n=n>>1;
+    }
+    return count;
+}
+
+int main() {
+    int x;
+    cout<<"enter number for find number of 1 in it"<<endl;
+    cin>>x;
+    int z=one(x);
+    cout<<"number of one's is "<<z<<endl;
+    return 0;
+}
