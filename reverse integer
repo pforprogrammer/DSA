@@ -1,0 +1,25 @@
+//program to reverse integer give by user
+#include <iostream>
+#include <climits>
+using namespace std;
+int reverse(int n){
+    int ans=0;
+    while(n!=0){
+    int digit=n%10;
+    if(ans<INT_MIN/10 || ans>INT_MAX/10){
+        return 1;
+    }
+    else{
+    ans=(ans*10)+digit;
+    n=n/10;
+    }
+  }
+}
+int main() {
+    // Write C++ code here
+int n;
+    cout<<"enter any number"<<endl;
+cin>>n;
+   cout<< reverse(n);
+    return 0;
+}
