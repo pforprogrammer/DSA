@@ -1,0 +1,18 @@
+//program to find power(value) of number
+#include <iostream>
+using namespace std;
+void power(int num, int pow){
+        int ans=1;
+    for(int i=1; i<=pow; i++){
+        ans=ans*num;
+    }
+    cout<<"you answer is "<<ans<<endl;
+}
+
+int main() {
+    int n ,p;
+    cout<<"enter number and a power"<<endl;
+    cin>>n>>p;
+    power(n,p);
+    return 0;
+}
