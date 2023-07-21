@@ -1,0 +1,26 @@
+//program to check that the number is in 2 power's or not
+#include <iostream>
+#include <cmath>
+using namespace std;
+bool power(int n){
+    int ans;
+    for(int i=0; i<=30; i++){
+        ans=pow(2,i);
+        if(ans==n){
+            return true;
+        }
+    }
+    return false;
+}
+int main() {
+    int num;
+    cout<<"enter any number to check that it is in 2 power's"<<endl;
+    cin>>num;
+    if(power(num)){
+        cout<<"number is in 2 power's"<<endl;
+    }
+    else{
+        cout<<"number is not power of 2"<<endl;
+    }
+    return 0;
+}
