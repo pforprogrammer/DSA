@@ -1,0 +1,27 @@
+//concepts
+#include <iostream>
+using namespace std;
+
+void dummy(int n ) {
+    n++;
+    cout << " n is " << n <<endl;
+
+}
+
+int main() {
+
+    int n;
+    cout<<"enter number "<<endl;
+    cin >> n;
+
+    dummy(n);
+
+    cout<<"number n is "<< n << endl;
+
+    return 0;
+}
+input:
+2
+output :
+3
+2
