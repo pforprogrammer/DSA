@@ -4,7 +4,7 @@ using namespace std;
 int pivot(int arr[],int f,int l){
    int mid=f+(l-f)/2;
     while(f<l){
-        if(arr[mid]>=arr[0]){
+        if(arr[mid]>arr[0]){  // not equal case due to if first and mid is equal value and if pivot value is mid then it can cause of an array
             f=mid+1;
         }else{
             l=mid;
