@@ -1,4 +1,4 @@
-//program to find maximum and minimum value of an array
+//program to find maximum and minimum value of an array 
 #include <iostream>
 #include <limits.h>
 #include <cmath>
