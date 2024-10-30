@@ -284,3 +284,352 @@ Please enter the number corresponding to the shape you would like to calculate t
 Please enter the length and width of the Rectangle: 23 12
 The area of the Rectangle is: 276
 ```
+
+---
+### Task 01: Class Definition and Implementation 
+
+Create a class called `Vehicle` with the following properties:
+
+- **Data Members:**
+  - A string named as `company`.
+  - A string named as `fuelType`.
+  - An integer named as `yearOfManufacture`.
+  - A string named as `yearOfPurchase`.
+  - A string named as `color`.
+  - An integer named as `engineCapacity`.
+
+- Your class should provide the implementation of a default constructor that first prints a line  
+  “Default Constructor of Vehicle is called” and then initializes all the data members with the  
+  default values (Default value for integer and string variables are `0` and `""`).
+
+- Provide the implementation of appropriate properties method (Getter/Accessors and  
+  Setters/Mutators).
+
+- Provide the implementation of following data functions:
+  - `displayDetails()`: displays all the information of the particular vehicle on console.
+  - `inputDetails()`: takes the input of all the details of vehicle from the user.
+  - `isOld()`: displays how old the vehicle is. If the manufacturing and purchasing year  
+    is the same, then display “Vehicle is purchased in the same year as it is manufactured”,  
+    otherwise displays the message “Vehicle is [number] years old”.
+
+- Provide the implementation of an appropriate destructor that displays the message “Destructor Called”.
+
+
+---
+
+### Task 02: Class with Constructor Implementation 
+
+Write a class named `Employee` for which each object can hold information about a particular employee:
+
+- The class should have the following four private data members:
+  - A string named `name` that holds the employee’s name.
+  - An integer named `id` that holds the employee’s ID number.
+  - A string named `department` that holds the name of the department where the employee works.
+  - A string named `position` that holds the employee’s job title.
+
+- Provide the implementation of the following constructors and a destructor:
+  - A parameterized constructor that accepts the employee’s name, ID number, department, and position as arguments and assigns them to the appropriate member variables.
+  - A parameterized constructor that accepts the employee’s name and ID number as arguments and assigns them to the appropriate member variables. The `department` and `position` fields should be assigned an empty string (`""`).
+  - A default constructor that assigns an empty string (`""`) to the `name`, `department`, and `position` member variables, and `0` to the `id` member variable.
+  - A destructor that does nothing except displaying a simple message “Destructor executed…” on the screen.
+
+- Provide the implementation of property methods (getters/setters) for all the data members (`name`, `id`, `department`, and `position`) of the class.
+
+- Provide the implementation of the following member functions:
+  - `setInfo()`: This method accepts the employee’s name, ID number, department, and position as arguments and assigns them to the appropriate member variables.
+  - `getInfo()`: This method initializes the data of an employee taken from the user.
+
+---
+
+### Task 3: Constructor Implementation 
+
+**a)** Design a class called `Circle` with at least three data members: `radius`, `originx`, and `originy`. 
+- The `origin` is the central point of a circle, and the `radius` is the distance between the central point and the boundary of the circle. Since the origin is a point, it can be modeled with `x` and `y` coordinates.
+- Provide the implementation of a default constructor, a parameterized constructor, and a destructor.
+- Implement appropriate getters/setters.
+- Write appropriate data functions to calculate the area, diameter, and circumference of the circle. Use the following formulas:
+  - **Area**: `π * radius * radius`
+  - **Circumference**: `2 * π * radius`
+  - **Diameter**: `radius * 2`
+- All inputs should be taken from the user in the main function to set data members of the class. Then, the main function should call relevant member functions to calculate the area, circumference, and diameter. The main function should only call relevant methods.
+
+**b)** Create 4 circles and initialize them using the parameterized constructor (you can hardcode values while calling the constructor).
+- Find and display which of the circles are concentric. Concentric circles have the same central point. *(Hint: the logic for this will be implemented in the main function)*
+
+**c)** For the identified concentric circles:
+- Assign a label to each circle. The label is the position number, where the most internal circle has label 1, and so on. Display the assigned labels. *(Hint: the logic for this will be implemented in the main function)*
+
+**d)** Find and display:
+- Which of the concentric circles has a diameter greater than 12. You must understand the relationship between the diameter and radius of any circle. *(Hint: the logic for this will be implemented in the main function)*
+
+
+---
+
+
+### Task 01:
+
+### C++ Code:
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Vehicle {
+private:
+    string company;
+    string fuelType;
+    int yearOfManufacture;
+    string yearOfPurchase;
+    string color;
+    int engineCapacity;
+
+public:
+    // Default Constructor
+    Vehicle() {
+        cout << "Default Constructor of Vehicle is called" << endl;
+        company = "";
+        fuelType = "";
+        yearOfManufacture = 0;
+        yearOfPurchase = "";
+        color = "";
+        engineCapacity = 0;
+    }
+
+    // Destructor
+    ~Vehicle() {
+        cout << "Destructor Called" << endl;
+    }
+
+    // Setters (Mutators)
+    void setCompany(string comp) { company = comp; }
+    void setFuelType(string fuel) { fuelType = fuel; }
+    void setYearOfManufacture(int year) { yearOfManufacture = year; }
+    void setYearOfPurchase(string purchaseYear) { yearOfPurchase = purchaseYear; }
+    void setColor(string col) { color = col; }
+    void setEngineCapacity(int capacity) { engineCapacity = capacity; }
+
+    // Getters (Accessors)
+    string getCompany() { return company; }
+    string getFuelType() { return fuelType; }
+    int getYearOfManufacture() { return yearOfManufacture; }
+    string getYearOfPurchase() { return yearOfPurchase; }
+    string getColor() { return color; }
+    int getEngineCapacity() { return engineCapacity; }
+
+    // Function to input details
+    void inputDetails() {
+        cout << "Enter Company: ";
+        cin >> company;
+        cout << "Enter Fuel Type: ";
+        cin >> fuelType;
+        cout << "Enter Year of Manufacture: ";
+        cin >> yearOfManufacture;
+        cout << "Enter Year of Purchase: ";
+        cin >> yearOfPurchase;
+        cout << "Enter Color: ";
+        cin >> color;
+        cout << "Enter Engine Capacity: ";
+        cin >> engineCapacity;
+    }
+
+    // Function to display details
+    void displayDetails() {
+        cout << "Company: " << company << endl;
+        cout << "Fuel Type: " << fuelType << endl;
+        cout << "Year of Manufacture: " << yearOfManufacture << endl;
+        cout << "Year of Purchase: " << yearOfPurchase << endl;
+        cout << "Color: " << color << endl;
+        cout << "Engine Capacity: " << engineCapacity << " cc" << endl;
+    }
+
+    // Function to check if the vehicle is old
+    void isOld() {
+        if (yearOfManufacture == stoi(yearOfPurchase)) {
+            cout << "Vehicle is purchased in the same year as it is manufactured." << endl;
+        } else {
+            int age = stoi(yearOfPurchase) - yearOfManufacture;
+            cout << "Vehicle is " << age << " years old." << endl;
+        }
+    }
+};
+
+int main() {
+    // Create a Vehicle object
+    Vehicle myCar;
+
+    // Input details
+    myCar.inputDetails();
+
+    // Display details
+    myCar.displayDetails();
+
+    // Check if the vehicle is old
+    myCar.isOld();
+
+    return 0;
+}
+```
+
+
+### Sample Output:
+
+```
+Default Constructor of Vehicle is called
+Enter Company: Toyota
+Enter Fuel Type: Petrol
+Enter Year of Manufacture: 2015
+Enter Year of Purchase: 2020
+Enter Color: Red
+Enter Engine Capacity: 1500
+Company: Toyota
+Fuel Type: Petrol
+Year of Manufacture: 2015
+Year of Purchase: 2020
+Color: Red
+Engine Capacity: 1500 cc
+Vehicle is 5 years old.
+Destructor Called
+``` 
+
+
+
+
+
+### Task 02:
+
+
+### C++ Code for the `Employee` class:
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Employee {
+private:
+    string name;
+    int id;
+    string department;
+    string position;
+
+public:
+    // Default Constructor
+    Employee() {
+        cout << "Default Constructor of Employee is called" << endl;
+        name = "";
+        id = 0;
+        department = "";
+        position = "";
+    }
+
+    // Parameterized Constructor 1 (With all parameters)
+    Employee(string empName, int empID, string empDepartment, string empPosition) {
+        cout << "Parameterized Constructor (all parameters) is called" << endl;
+        name = empName;
+        id = empID;
+        department = empDepartment;
+        position = empPosition;
+    }
+
+    // Parameterized Constructor 2 (Name and ID only)
+    Employee(string empName, int empID) {
+        cout << "Parameterized Constructor (name and ID only) is called" << endl;
+        name = empName;
+        id = empID;
+        department = "";
+        position = "";
+    }
+
+    // Destructor
+    ~Employee() {
+        cout << "Destructor executed..." << endl;
+    }
+
+    // Getters (Accessors)
+    string getName() { return name; }
+    int getID() { return id; }
+    string getDepartment() { return department; }
+    string getPosition() { return position; }
+
+    // Setters (Mutators)
+    void setName(string empName) { name = empName; }
+    void setID(int empID) { id = empID; }
+    void setDepartment(string empDepartment) { department = empDepartment; }
+    void setPosition(string empPosition) { position = empPosition; }
+
+    // Function to set employee information
+    void setInfo(string empName, int empID, string empDepartment, string empPosition) {
+        name = empName;
+        id = empID;
+        department = empDepartment;
+        position = empPosition;
+    }
+
+    // Function to get and display employee information
+    void getInfo() {
+        cout << "Employee Name: " << name << endl;
+        cout << "Employee ID: " << id << endl;
+        cout << "Department: " << department << endl;
+        cout << "Position: " << position << endl;
+    }
+};
+
+int main() {
+    // Using the default constructor
+    Employee emp1;
+    emp1.getInfo();
+
+    // Using the parameterized constructor with all parameters
+    Employee emp2("John Doe", 101, "IT", "Manager");
+    emp2.getInfo();
+
+    // Using the parameterized constructor with name and ID only
+    Employee emp3("Jane Smith", 102);
+    emp3.getInfo();
+
+    // Setting and displaying employee information using setInfo() function
+    Employee emp4;
+    emp4.setInfo("Alice Johnson", 103, "HR", "HR Executive");
+    emp4.getInfo();
+
+    return 0;
+}
+```
+
+### Sample Output:
+
+```
+Default Constructor of Employee is called
+Employee Name: 
+Employee ID: 0
+Department: 
+Position: 
+
+Parameterized Constructor (all parameters) is called
+Employee Name: John Doe
+Employee ID: 101
+Department: IT
+Position: Manager
+
+Parameterized Constructor (name and ID only) is called
+Employee Name: Jane Smith
+Employee ID: 102
+Department: 
+Position: 
+
+Default Constructor of Employee is called
+Employee Name: Alice Johnson
+Employee ID: 103
+Department: HR
+Position: HR Executive
+Destructor executed...
+Destructor executed...
+Destructor executed...
+Destructor executed...
+```
+
+
+
+### Task 03:
+
